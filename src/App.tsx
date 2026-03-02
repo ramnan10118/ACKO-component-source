@@ -25,7 +25,7 @@ import {
   TableCell,
 } from "@acko/table";
 
-/* ─── icons (inline SVGs to avoid extra deps) ────────────────────────── */
+/* ─── Icons (inline SVGs) ────────────────────────────────────────────── */
 
 const ShieldIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -33,9 +33,15 @@ const ShieldIcon = () => (
   </svg>
 );
 
-const CarIcon = () => (
+const HeartIcon = () => (
   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-1.5-1.5v-.75m10.5.75a1.5 1.5 0 0 0 1.5-1.5v-.75M3.75 12h16.5m-16.5 0a2.25 2.25 0 0 1-2.25-2.25V7.5A2.25 2.25 0 0 1 3.75 5.25h1.028a2.25 2.25 0 0 1 1.81.918l1.624 2.182h7.576l1.624-2.182a2.25 2.25 0 0 1 1.81-.918h1.028a2.25 2.25 0 0 1 2.25 2.25v2.25a2.25 2.25 0 0 1-2.25 2.25m-16.5 0v3.75m16.5-3.75v3.75M7.5 18.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm12 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+  </svg>
+);
+
+const HospitalIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
   </svg>
 );
 
@@ -51,6 +57,12 @@ const WalletIcon = () => (
   </svg>
 );
 
+const UserGroupIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+  </svg>
+);
+
 const PhoneIcon = () => (
   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -63,43 +75,63 @@ const CheckCircleIcon = () => (
   </svg>
 );
 
-/* ─── data ────────────────────────────────────────────────────────────── */
+const CrossIcon = () => (
+  <svg className="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+  </svg>
+);
 
-const COVERAGE_PLANS = {
-  basic: {
-    name: "Third Party",
-    price: "₹2,094",
+const StethoscopeIcon = () => (
+  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5m-4.75-11.396c.251.023.501.05.75.082M19 14.5a2.25 2.25 0 0 1 0 4.5m0-4.5v4.5m-14-4.5a2.25 2.25 0 0 0 0 4.5m0-4.5v4.5" />
+  </svg>
+);
+
+/* ─── Data ────────────────────────────────────────────────────────────── */
+
+const HEALTH_PLANS = {
+  individual: {
+    name: "Individual",
+    price: "₹4,999",
     period: "/year",
+    sumInsured: "₹5 Lakh",
     features: [
-      "Third-party liability cover",
-      "Personal accident cover",
-      "Legal liability to paid driver",
+      "Hospitalisation cover up to ₹5 Lakh",
+      "Pre & post hospitalisation (60/180 days)",
+      "Day-care procedures covered",
+      "Ambulance charges up to ₹2,000",
+      "No room rent capping",
     ],
   },
-  standard: {
-    name: "Comprehensive",
-    price: "₹5,499",
+  family: {
+    name: "Family Floater",
+    price: "₹9,999",
     period: "/year",
+    sumInsured: "₹10 Lakh",
     features: [
-      "Everything in Third Party",
-      "Own damage cover",
-      "Fire & theft protection",
-      "Natural calamity cover",
-      "24/7 roadside assistance",
+      "Covers self, spouse & 2 children",
+      "Shared sum insured of ₹10 Lakh",
+      "Maternity & newborn cover",
+      "Pre & post hospitalisation (60/180 days)",
+      "Day-care procedures covered",
+      "No room rent capping",
+      "Annual health check-up",
     ],
   },
-  premium: {
-    name: "Comprehensive+",
-    price: "₹8,299",
+  super: {
+    name: "Super Top-Up",
+    price: "₹14,999",
     period: "/year",
+    sumInsured: "₹25 Lakh",
     features: [
-      "Everything in Comprehensive",
-      "Zero depreciation",
-      "Engine protector",
-      "Return to invoice",
-      "Consumables cover",
-      "Key replacement",
-      "Tyre protect",
+      "Everything in Family Floater",
+      "Sum insured of ₹25 Lakh",
+      "₹50 Lakh critical illness cover",
+      "Worldwide emergency cover",
+      "Restore benefit (100% sum insured)",
+      "AYUSH treatment covered",
+      "Organ donor expenses",
+      "Second medical opinion",
     ],
   },
 };
@@ -107,84 +139,106 @@ const COVERAGE_PLANS = {
 const FAQ_ITEMS = [
   {
     value: "what-is",
-    trigger: "What is car insurance?",
+    trigger: "What is health insurance?",
     content:
-      "Car insurance is a contract between you and an insurance company that protects you against financial loss in the event of an accident or theft. In exchange for paying a premium, the company agrees to pay your losses as outlined in your policy.",
+      "Health insurance is a type of insurance that covers medical expenses incurred due to illness, injury, or hospitalisation. It reimburses the policyholder for covered medical expenses or pays the healthcare provider directly through cashless claims at network hospitals.",
   },
   {
-    value: "types",
-    trigger: "What types of car insurance are available?",
+    value: "waiting-period",
+    trigger: "What is the waiting period?",
     content:
-      "There are primarily two types: Third-Party Liability (mandatory by law, covers damage to others) and Comprehensive (covers both third-party liability and damage to your own vehicle from accidents, theft, fire, and natural disasters).",
+      "Most health insurance policies have a 30-day initial waiting period for non-accident claims. Pre-existing diseases typically have a 2-4 year waiting period, while specific illnesses may have a 1-2 year waiting period. With Acko, pre-existing disease waiting is reduced to just 2 years.",
   },
   {
-    value: "ncb",
-    trigger: "What is a No Claim Bonus (NCB)?",
+    value: "cashless",
+    trigger: "How does cashless treatment work?",
     content:
-      "NCB is a discount on your premium that you earn for every claim-free year. It starts at 20% after the first year and can go up to 50% after five consecutive claim-free years. This is one of the best ways to reduce your premium.",
+      "At any of our 14,000+ network hospitals, you can avail cashless treatment. Simply show your Acko health card at the hospital, and we settle the bill directly with the hospital. No upfront payment needed — you only pay the non-covered expenses, if any.",
   },
   {
-    value: "documents",
-    trigger: "What documents do I need to buy car insurance?",
+    value: "tax",
+    trigger: "Can I get tax benefits on health insurance?",
     content:
-      "You typically need your vehicle registration certificate (RC), previous policy details (if renewing), driving licence, and basic KYC documents like Aadhaar or PAN card.",
+      "Yes! Premiums paid for health insurance are eligible for tax deduction under Section 80D of the Income Tax Act. You can claim up to ₹25,000 for self and family, and an additional ₹50,000 for senior citizen parents — saving you up to ₹15,600 in taxes.",
   },
   {
     value: "claim",
-    trigger: "How do I file a claim?",
+    trigger: "How do I file a health insurance claim?",
     content:
-      "You can file a claim through our app or website in under 2 minutes. Simply upload photos of the damage, fill in the incident details, and our team will guide you through the cashless repair process at any of our 5,000+ network garages.",
+      "For cashless claims, simply visit a network hospital and share your policy details. For reimbursement claims, upload your hospital bills, discharge summary, and prescriptions through our app or website. Our AI processes most claims within 24 hours of document submission.",
+  },
+  {
+    value: "family-cover",
+    trigger: "Can I add family members later?",
+    content:
+      "Yes, you can add family members to your existing policy during renewal. Newborns are automatically covered from day one under the Family Floater and Super Top-Up plans at no additional cost for the first 90 days.",
   },
 ];
 
 const TESTIMONIALS = [
   {
-    name: "Priya Sharma",
-    location: "Mumbai",
-    text: "Filed a claim after a fender bender. Got approval within 30 minutes and cashless repair at a garage near my office. Incredibly smooth!",
+    name: "Meera Krishnan",
+    location: "Chennai",
+    text: "My father needed emergency surgery. The cashless process at Apollo was seamless — approved in 20 minutes. The ₹3.2 lakh bill was settled without any hassle.",
     rating: 5,
   },
   {
-    name: "Rahul Verma",
-    location: "Delhi",
-    text: "Switched from another insurer because of the zero-depreciation add-on pricing. Saved almost ₹3,000 on my renewal. The process was entirely digital.",
+    name: "Arjun Mehta",
+    location: "Pune",
+    text: "Switched from a traditional insurer. Acko's plan is 40% cheaper for the same ₹10 lakh cover. The app makes managing the policy incredibly easy.",
     rating: 5,
   },
   {
-    name: "Ananya Patel",
-    location: "Bangalore",
-    text: "Roadside assistance came through when my car broke down on the highway at 11 PM. Tow truck arrived in 45 minutes. Truly 24/7 support.",
+    name: "Sneha Reddy",
+    location: "Hyderabad",
+    text: "Filed a reimbursement claim for my delivery expenses. Got ₹1.8 lakh credited to my account in just 3 days. The maternity cover is genuinely comprehensive.",
+    rating: 5,
+  },
+  {
+    name: "Vikram Singh",
+    location: "Jaipur",
+    text: "The annual health check-up benefit is great. Booked it through the app, walked into a diagnostic centre near home, and done. No extra cost.",
     rating: 4,
   },
 ];
 
 const COMPARISON_DATA = [
-  { feature: "Third-party cover", thirdParty: true, comprehensive: true, comprehensivePlus: true },
-  { feature: "Own damage cover", thirdParty: false, comprehensive: true, comprehensivePlus: true },
-  { feature: "Personal accident cover", thirdParty: true, comprehensive: true, comprehensivePlus: true },
-  { feature: "Fire & theft", thirdParty: false, comprehensive: true, comprehensivePlus: true },
-  { feature: "Natural calamity", thirdParty: false, comprehensive: true, comprehensivePlus: true },
-  { feature: "Roadside assistance", thirdParty: false, comprehensive: true, comprehensivePlus: true },
-  { feature: "Zero depreciation", thirdParty: false, comprehensive: false, comprehensivePlus: true },
-  { feature: "Engine protector", thirdParty: false, comprehensive: false, comprehensivePlus: true },
-  { feature: "Return to invoice", thirdParty: false, comprehensive: false, comprehensivePlus: true },
-  { feature: "Consumables cover", thirdParty: false, comprehensive: false, comprehensivePlus: true },
+  { feature: "Hospitalisation cover", individual: true, family: true, superTopUp: true },
+  { feature: "Pre/post hospitalisation", individual: true, family: true, superTopUp: true },
+  { feature: "Day-care procedures", individual: true, family: true, superTopUp: true },
+  { feature: "No room rent capping", individual: true, family: true, superTopUp: true },
+  { feature: "Maternity & newborn", individual: false, family: true, superTopUp: true },
+  { feature: "Annual health check-up", individual: false, family: true, superTopUp: true },
+  { feature: "Critical illness cover", individual: false, family: false, superTopUp: true },
+  { feature: "Worldwide emergency", individual: false, family: false, superTopUp: true },
+  { feature: "Restore benefit", individual: false, family: false, superTopUp: true },
+  { feature: "AYUSH treatment", individual: false, family: false, superTopUp: true },
+  { feature: "Organ donor expenses", individual: false, family: false, superTopUp: true },
+];
+
+const NETWORK_STATS = [
+  { label: "Network hospitals", value: "14,000+" },
+  { label: "Cities covered", value: "700+" },
+  { label: "Avg claim time", value: "24 hrs" },
+  { label: "Claim approval rate", value: "97%" },
 ];
 
 /* ─── App ─────────────────────────────────────────────────────────────── */
 
 function App() {
-  const [activeTab, setActiveTab] = useState("standard");
-  const [carNumber, setCarNumber] = useState("");
+  const [activeTab, setActiveTab] = useState("family");
   const [fullName, setFullName] = useState("");
   const [mobile, setMobile] = useState("");
-  const [carBrand, setCarBrand] = useState("");
-  const [fuelType, setFuelType] = useState("petrol");
+  const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [city, setCity] = useState("");
+  const [members, setMembers] = useState("self-spouse");
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
   const [paperless, setPaperless] = useState(true);
+  const [existingCondition, setExistingCondition] = useState("no");
 
-  const activePlan = COVERAGE_PLANS[activeTab as keyof typeof COVERAGE_PLANS];
+  const activePlan = HEALTH_PLANS[activeTab as keyof typeof HEALTH_PLANS];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -195,7 +249,7 @@ function App() {
           dismissible
           onDismiss={() => setShowAlert(false)}
         >
-          Limited time offer — Get 10% off on comprehensive plans. Use code ACKOCAR10 at checkout.
+          Special offer — Get 2 months extra cover FREE on all health plans purchased this month. Use code ACKOHEALTH.
         </Alert>
       )}
 
@@ -204,35 +258,33 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-9 h-9 bg-purple-600 rounded-lg">
+              <div className="flex items-center justify-center w-9 h-9 bg-purple-600 rounded-lg text-white">
                 <ShieldIcon />
               </div>
               <Typography variant="heading-md" weight="bold">
-                Acko Car Insurance
+                Acko Health Insurance
               </Typography>
             </div>
             <nav className="hidden md:flex items-center gap-8">
-              <Typography variant="body-md" color="muted" className="cursor-pointer hover:text-gray-900 transition-colors">
-                Plans
-              </Typography>
-              <Typography variant="body-md" color="muted" className="cursor-pointer hover:text-gray-900 transition-colors">
-                Benefits
-              </Typography>
-              <Typography variant="body-md" color="muted" className="cursor-pointer hover:text-gray-900 transition-colors">
-                Claims
-              </Typography>
-              <Typography variant="body-md" color="muted" className="cursor-pointer hover:text-gray-900 transition-colors">
-                FAQs
-              </Typography>
+              {["Plans", "Benefits", "Hospitals", "Claims", "FAQs"].map((item) => (
+                <Typography
+                  key={item}
+                  variant="body-md"
+                  color="muted"
+                  className="cursor-pointer hover:text-gray-900 transition-colors"
+                >
+                  {item}
+                </Typography>
+              ))}
             </nav>
             <div className="flex items-center gap-3">
-              <Tooltip content="Call us at 1800-266-2256" side="bottom">
+              <Tooltip content="Call us at 1800-266-2256 (toll-free)" side="bottom">
                 <Button variant="ghost" size="sm" iconLeft={<PhoneIcon />}>
                   1800-266-2256
                 </Button>
               </Tooltip>
               <Button variant="primary" size="sm">
-                Get a Quote
+                Get Covered
               </Button>
             </div>
           </div>
@@ -245,24 +297,24 @@ function App() {
           items={[
             { label: "Home", href: "/" },
             { label: "Insurance", href: "/insurance" },
-            { label: "Car Insurance" },
+            { label: "Health Insurance" },
           ]}
         />
       </div>
 
       {/* ── Hero Section ────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <Badge variant="solid" color="purple" size="md">
-              #1 Digital-First Insurer
+              Trusted by 1 Crore+ Indians
             </Badge>
             <Typography variant="display-lg" weight="bold" className="mt-4">
-              Car insurance that actually makes sense
+              Health insurance that puts your family first
             </Typography>
             <Typography variant="body-lg" color="muted" className="mt-4 max-w-lg">
-              Zero paperwork. Instant policy. 3-day claim settlement. Join 50 lakh+ happy car owners
-              who trust Acko for their car insurance.
+              Comprehensive health coverage starting at just ₹14/day. Cashless treatment at
+              14,000+ hospitals, 24-hour claims, and zero hidden charges.
             </Typography>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button variant="primary" size="lg">
@@ -273,52 +325,31 @@ function App() {
               </Button>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-6">
-              <div>
-                <Typography variant="heading-lg" weight="bold" color="primary">
-                  50L+
-                </Typography>
-                <Typography variant="body-sm" color="muted">
-                  Customers served
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="heading-lg" weight="bold" color="primary">
-                  3 days
-                </Typography>
-                <Typography variant="body-sm" color="muted">
-                  Avg claim settlement
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="heading-lg" weight="bold" color="primary">
-                  5,000+
-                </Typography>
-                <Typography variant="body-sm" color="muted">
-                  Network garages
-                </Typography>
-              </div>
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+              {NETWORK_STATS.map((stat) => (
+                <div key={stat.label}>
+                  <Typography variant="heading-lg" weight="bold" color="primary">
+                    {stat.value}
+                  </Typography>
+                  <Typography variant="body-sm" color="muted">
+                    {stat.label}
+                  </Typography>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* ── Quote form card ──────────────────────────────────────── */}
+          {/* ── Quote Form Card ──────────────────────────────────────── */}
           <Card variant="elevated" padding="lg">
             <CardHeader>
               <Typography variant="heading-md" weight="semibold">
-                Get your quote in 30 seconds
+                Get your health insurance quote
               </Typography>
               <Typography variant="body-sm" color="muted" className="mt-1">
-                No spam. No calls. Just your price.
+                Free quote in 30 seconds. No spam calls.
               </Typography>
             </CardHeader>
             <CardContent className="space-y-4">
-              <TextInput
-                label="Car Registration Number"
-                placeholder="e.g. MH 01 AB 1234"
-                value={carNumber}
-                onChange={setCarNumber}
-                size="md"
-              />
               <TextInput
                 label="Full Name"
                 placeholder="Enter your full name"
@@ -326,6 +357,33 @@ function App() {
                 onChange={setFullName}
                 size="md"
               />
+              <div className="grid grid-cols-2 gap-4">
+                <TextInput
+                  label="Age"
+                  placeholder="e.g. 30"
+                  value={age}
+                  onChange={setAge}
+                  type="number"
+                  size="md"
+                />
+                <Dropdown
+                  label="City"
+                  placeholder="Select city"
+                  options={[
+                    { value: "mumbai", label: "Mumbai" },
+                    { value: "delhi", label: "Delhi NCR" },
+                    { value: "bangalore", label: "Bangalore" },
+                    { value: "chennai", label: "Chennai" },
+                    { value: "hyderabad", label: "Hyderabad" },
+                    { value: "pune", label: "Pune" },
+                    { value: "kolkata", label: "Kolkata" },
+                    { value: "other", label: "Other" },
+                  ]}
+                  value={city}
+                  onChange={(v) => setCity(v as string)}
+                  size="md"
+                />
+              </div>
               <TextInput
                 label="Mobile Number"
                 placeholder="10-digit mobile number"
@@ -335,38 +393,43 @@ function App() {
                 size="md"
                 prefix="+91"
               />
+              <TextInput
+                label="Email Address"
+                placeholder="you@example.com"
+                value={email}
+                onChange={setEmail}
+                type="email"
+                size="md"
+              />
               <Dropdown
-                label="Car Brand"
-                placeholder="Select your car brand"
+                label="Members to Cover"
+                placeholder="Select members"
                 options={[
-                  { value: "maruti", label: "Maruti Suzuki" },
-                  { value: "hyundai", label: "Hyundai" },
-                  { value: "tata", label: "Tata Motors" },
-                  { value: "mahindra", label: "Mahindra" },
-                  { value: "kia", label: "Kia" },
-                  { value: "toyota", label: "Toyota" },
-                  { value: "honda", label: "Honda" },
-                  { value: "mg", label: "MG Motor" },
+                  { value: "self", label: "Self Only" },
+                  { value: "self-spouse", label: "Self + Spouse" },
+                  { value: "self-spouse-kids", label: "Self + Spouse + Kids" },
+                  { value: "parents", label: "Parents" },
+                  { value: "family", label: "Entire Family" },
                 ]}
-                value={carBrand}
-                onChange={(v) => setCarBrand(v as string)}
+                value={members}
+                onChange={(v) => setMembers(v as string)}
                 size="md"
               />
               <RadioGroup
-                label="Fuel Type"
+                label="Any pre-existing conditions?"
                 options={[
-                  { value: "petrol", label: "Petrol" },
-                  { value: "diesel", label: "Diesel" },
-                  { value: "cng", label: "CNG" },
-                  { value: "electric", label: "Electric" },
+                  { value: "no", label: "No" },
+                  { value: "diabetes", label: "Diabetes" },
+                  { value: "bp", label: "Blood Pressure" },
+                  { value: "other", label: "Other" },
                 ]}
-                value={fuelType}
-                onChange={setFuelType}
+                value={existingCondition}
+                onChange={setExistingCondition}
                 orientation="horizontal"
                 size="sm"
               />
               <Checkbox
-                label="I agree to the terms & conditions"
+                label="I agree to the terms & conditions and privacy policy"
                 checked={agreeTerms}
                 onChange={setAgreeTerms}
                 size="sm"
@@ -383,39 +446,49 @@ function App() {
 
       <Separator />
 
-      {/* ── Why Acko ────────────────────────────────────────────────── */}
+      {/* ── Why Acko Health ─────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <Typography variant="heading-xl" weight="bold">
-            Why 50 lakh+ drivers choose Acko
+            Why choose Acko Health Insurance?
           </Typography>
           <Typography variant="body-lg" color="muted" className="mt-3 max-w-2xl mx-auto">
-            Insurance designed for the digital age — transparent pricing, instant issuance,
-            and hassle-free claims.
+            Built for modern India — transparent, affordable, and designed to
+            make healthcare accessible for every family.
           </Typography>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              icon: <ShieldIcon />,
-              title: "Comprehensive Cover",
-              desc: "Protection against accidents, theft, fire, floods, and third-party liabilities.",
+              icon: <HospitalIcon />,
+              title: "14,000+ Network Hospitals",
+              desc: "Cashless treatment at India's best hospitals including Apollo, Fortis, Max, and Narayana Health across 700+ cities.",
             },
             {
               icon: <ClockIcon />,
-              title: "Instant Policy",
-              desc: "Get insured in under 2 minutes. 100% digital, zero paperwork required.",
+              title: "24-Hour Claims",
+              desc: "AI-powered claims engine processes and settles most claims within 24 hours. No lengthy paperwork.",
             },
             {
               icon: <WalletIcon />,
-              title: "Best Prices",
-              desc: "Save up to 85% on your premium. No middlemen, no hidden charges.",
+              title: "Save up to 60%",
+              desc: "No intermediaries or branch overheads. We pass the savings directly to you with India's most competitive premiums.",
             },
             {
-              icon: <CarIcon />,
-              title: "Fast Claims",
-              desc: "AI-powered claims settled in 3 days on average. 5,000+ cashless garages.",
+              icon: <HeartIcon />,
+              title: "No Room Rent Limits",
+              desc: "Choose any room — single, twin-sharing, or suite. No sub-limits that reduce your effective cover.",
+            },
+            {
+              icon: <UserGroupIcon />,
+              title: "Family-First Plans",
+              desc: "Cover your entire family under a single policy. Maternity, newborn cover, and annual health check-ups included.",
+            },
+            {
+              icon: <StethoscopeIcon />,
+              title: "Preventive Care",
+              desc: "Free annual health check-ups, teleconsultations, and wellness programs to keep you healthy year-round.",
             },
           ].map((item) => (
             <Card key={item.title} variant="outline" padding="md" className="hover:shadow-md transition-shadow">
@@ -441,19 +514,19 @@ function App() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-10">
           <Typography variant="heading-xl" weight="bold">
-            Choose your coverage plan
+            Pick the plan that fits your family
           </Typography>
           <Typography variant="body-lg" color="muted" className="mt-3">
-            Flexible plans that fit your budget and driving needs.
+            Flexible health plans with no hidden charges and genuine coverage.
           </Typography>
         </div>
 
         <div className="flex justify-center mb-8">
           <Tabs
             items={[
-              { value: "basic", label: "Third Party" },
-              { value: "standard", label: "Comprehensive" },
-              { value: "premium", label: "Comprehensive+" },
+              { value: "individual", label: "Individual" },
+              { value: "family", label: "Family Floater" },
+              { value: "super", label: "Super Top-Up" },
             ]}
             value={activeTab}
             onChange={setActiveTab}
@@ -470,7 +543,10 @@ function App() {
                   <Typography variant="heading-md" weight="bold">
                     {activePlan.name}
                   </Typography>
-                  <div className="flex items-baseline gap-1 mt-1">
+                  <Typography variant="body-sm" color="muted" className="mt-0.5">
+                    Sum Insured: {activePlan.sumInsured}
+                  </Typography>
+                  <div className="flex items-baseline gap-1 mt-2">
                     <Typography variant="display-sm" weight="bold" color="primary">
                       {activePlan.price}
                     </Typography>
@@ -479,12 +555,12 @@ function App() {
                     </Typography>
                   </div>
                 </div>
-                {activeTab === "standard" && (
+                {activeTab === "family" && (
                   <Badge variant="solid" color="green" size="sm">
-                    Popular
+                    Most Popular
                   </Badge>
                 )}
-                {activeTab === "premium" && (
+                {activeTab === "super" && (
                   <Badge variant="solid" color="orange" size="sm">
                     Best Value
                   </Badge>
@@ -503,7 +579,7 @@ function App() {
             </CardContent>
             <CardFooter>
               <Button variant="primary" size="lg" fullWidth>
-                Buy {activePlan.name}
+                Buy {activePlan.name} Plan
               </Button>
             </CardFooter>
           </Card>
@@ -518,6 +594,9 @@ function App() {
           <Typography variant="heading-xl" weight="bold">
             Compare plans side by side
           </Typography>
+          <Typography variant="body-md" color="muted" className="mt-3">
+            See exactly what each plan covers so you can make the right choice.
+          </Typography>
         </div>
 
         <Card variant="outline" padding="none">
@@ -525,9 +604,9 @@ function App() {
             <TableHeader>
               <TableRow>
                 <TableHead>Feature</TableHead>
-                <TableHead>Third Party</TableHead>
-                <TableHead>Comprehensive</TableHead>
-                <TableHead>Comprehensive+</TableHead>
+                <TableHead>Individual</TableHead>
+                <TableHead>Family Floater</TableHead>
+                <TableHead>Super Top-Up</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -539,28 +618,32 @@ function App() {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    {row.thirdParty ? (
-                      <CheckCircleIcon />
-                    ) : (
-                      <span className="text-gray-300">—</span>
-                    )}
+                    {row.individual ? <CheckCircleIcon /> : <CrossIcon />}
                   </TableCell>
                   <TableCell>
-                    {row.comprehensive ? (
-                      <CheckCircleIcon />
-                    ) : (
-                      <span className="text-gray-300">—</span>
-                    )}
+                    {row.family ? <CheckCircleIcon /> : <CrossIcon />}
                   </TableCell>
                   <TableCell>
-                    {row.comprehensivePlus ? (
-                      <CheckCircleIcon />
-                    ) : (
-                      <span className="text-gray-300">—</span>
-                    )}
+                    {row.superTopUp ? <CheckCircleIcon /> : <CrossIcon />}
                   </TableCell>
                 </TableRow>
               ))}
+              <TableRow>
+                <TableCell>
+                  <Typography variant="body-sm" weight="bold">
+                    Starting at
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body-sm" weight="bold" color="primary">₹4,999/yr</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body-sm" weight="bold" color="primary">₹9,999/yr</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body-sm" weight="bold" color="primary">₹14,999/yr</Typography>
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </Card>
@@ -568,40 +651,49 @@ function App() {
 
       <Separator />
 
-      {/* ── Claims Progress ─────────────────────────────────────────── */}
+      {/* ── Claims Track Record ─────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-2xl my-4">
         <div className="text-center mb-10">
           <Typography variant="heading-xl" weight="bold">
-            Our claims track record
+            Our claims speak for themselves
           </Typography>
           <Typography variant="body-lg" color="muted" className="mt-3">
-            Real numbers, real transparency.
+            Transparent numbers you can trust.
           </Typography>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+        <div className="grid sm:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
-            <Progress value={96} size="lg" color="success" showLabel label="Claim approval rate" />
+            <Progress value={97} size="lg" color="success" showLabel label="Claims approved" />
             <Typography variant="heading-sm" weight="bold" className="mt-3">
-              96%
+              97%
             </Typography>
             <Typography variant="body-sm" color="muted">
               Claims approved
             </Typography>
           </div>
           <div className="text-center">
-            <Progress value={88} size="lg" color="primary" showLabel label="Digital settlement" />
+            <Progress value={92} size="lg" color="primary" showLabel label="Cashless settlements" />
             <Typography variant="heading-sm" weight="bold" className="mt-3">
-              88%
+              92%
             </Typography>
             <Typography variant="body-sm" color="muted">
-              Settled digitally
+              Cashless settlements
             </Typography>
           </div>
           <div className="text-center">
-            <Progress value={92} size="lg" color="success" showLabel label="Customer satisfaction" />
+            <Progress value={85} size="lg" color="success" showLabel label="Under 24 hours" />
             <Typography variant="heading-sm" weight="bold" className="mt-3">
-              4.6/5
+              85%
+            </Typography>
+            <Typography variant="body-sm" color="muted">
+              Settled under 24hrs
+            </Typography>
+          </div>
+          <div className="text-center">
+            <Progress value={94} size="lg" color="primary" showLabel label="Satisfaction" />
+            <Typography variant="heading-sm" weight="bold" className="mt-3">
+              4.7/5
             </Typography>
             <Typography variant="body-sm" color="muted">
               Customer rating
@@ -612,26 +704,79 @@ function App() {
 
       <Separator />
 
+      {/* ── How It Works ────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-12">
+          <Typography variant="heading-xl" weight="bold">
+            Get covered in 3 simple steps
+          </Typography>
+        </div>
+
+        <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {[
+            {
+              step: "01",
+              title: "Tell us about yourself",
+              desc: "Share your age, city, and family details. Takes less than 30 seconds.",
+              color: "bg-purple-100 text-purple-700",
+            },
+            {
+              step: "02",
+              title: "Choose your plan",
+              desc: "Compare plans, customise your cover, and pick what works for your family.",
+              color: "bg-blue-100 text-blue-700",
+            },
+            {
+              step: "03",
+              title: "Pay & get insured",
+              desc: "Secure checkout. Policy issued instantly to your email and the Acko app.",
+              color: "bg-green-100 text-green-700",
+            },
+          ].map((item) => (
+            <Card key={item.step} variant="outline" padding="md" className="text-center hover:shadow-md transition-shadow">
+              <CardContent>
+                <div className={`w-14 h-14 rounded-full ${item.color} flex items-center justify-center mx-auto mb-4`}>
+                  <Typography variant="heading-md" weight="bold">
+                    {item.step}
+                  </Typography>
+                </div>
+                <Typography variant="heading-sm" weight="semibold">
+                  {item.title}
+                </Typography>
+                <Typography variant="body-sm" color="muted" className="mt-2">
+                  {item.desc}
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <Separator />
+
       {/* ── Testimonials ────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-10">
           <Typography variant="heading-xl" weight="bold">
-            Loved by drivers across India
+            Trusted by families across India
+          </Typography>
+          <Typography variant="body-lg" color="muted" className="mt-3">
+            Real stories from real policyholders.
           </Typography>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {TESTIMONIALS.map((t) => (
-            <Card key={t.name} variant="outline" padding="md">
+            <Card key={t.name} variant="outline" padding="md" className="hover:shadow-md transition-shadow">
               <CardContent>
-                <div className="flex mb-2">
+                <div className="flex mb-3">
                   {Array.from({ length: t.rating }).map((_, i) => (
                     <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <Typography variant="body-md" className="italic">
+                <Typography variant="body-sm" className="italic leading-relaxed">
                   "{t.text}"
                 </Typography>
                 <div className="flex items-center gap-3 mt-4">
@@ -653,6 +798,89 @@ function App() {
 
       <Separator />
 
+      {/* ── Tax Benefits ────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Badge variant="outline" color="green" size="md">
+              Section 80D Benefits
+            </Badge>
+            <Typography variant="heading-xl" weight="bold" className="mt-4">
+              Save up to ₹15,600 in taxes
+            </Typography>
+            <Typography variant="body-lg" color="muted" className="mt-4">
+              Your health insurance premium is eligible for tax deduction under Section 80D
+              of the Income Tax Act. That means you get protection and save money on taxes — it's a win-win.
+            </Typography>
+            <div className="mt-6 space-y-3">
+              {[
+                "Up to ₹25,000 deduction for self & family",
+                "Additional ₹50,000 for senior citizen parents",
+                "Preventive health check-up (up to ₹5,000)",
+              ].map((benefit) => (
+                <div key={benefit} className="flex items-center gap-2">
+                  <CheckCircleIcon />
+                  <Typography variant="body-md">{benefit}</Typography>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Button variant="primary" size="lg">
+                Calculate Tax Savings
+              </Button>
+            </div>
+          </div>
+          <Card variant="elevated" padding="lg" className="bg-green-50 border-green-200">
+            <CardContent>
+              <Typography variant="heading-md" weight="semibold" className="mb-6">
+                Tax savings example
+              </Typography>
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>
+                      <Typography variant="body-sm" color="muted">Premium (self & family)</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body-sm" weight="semibold">₹25,000</Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Typography variant="body-sm" color="muted">Premium (parents, 60+)</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body-sm" weight="semibold">₹50,000</Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Typography variant="body-sm" color="muted">Total deduction</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body-sm" weight="bold" color="primary">₹75,000</Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>
+                      <Typography variant="body-sm" color="muted">Tax saved (30% bracket)</Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="body-sm" weight="bold" color="primary">₹15,600*</Typography>
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+              <Typography variant="caption" color="muted" className="mt-4 block">
+                *Includes 4% health & education cess. Actual savings depend on your tax slab.
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Separator />
+
       {/* ── FAQs ────────────────────────────────────────────────────── */}
       <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-10">
@@ -660,7 +888,7 @@ function App() {
             Frequently asked questions
           </Typography>
           <Typography variant="body-lg" color="muted" className="mt-3">
-            Everything you need to know about car insurance.
+            Everything you need to know about health insurance.
           </Typography>
         </div>
 
@@ -674,22 +902,25 @@ function App() {
         <Card variant="elevated" padding="lg" className="bg-purple-600 text-white text-center">
           <CardContent>
             <Typography variant="display-sm" weight="bold" className="text-white">
-              Ready to protect your ride?
+              Your family's health can't wait
             </Typography>
             <Typography variant="body-lg" className="mt-3 opacity-90 text-purple-100">
-              Join 50 lakh+ car owners. Get your free quote in under 30 seconds.
+              Join 1 crore+ Indians who trust Acko. Get covered in under 2 minutes.
             </Typography>
-            <div className="mt-6 flex justify-center gap-4 items-center">
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4 items-center">
               <Button variant="secondary" size="lg">
                 Get Free Quote
               </Button>
               <div className="flex items-center gap-2">
                 <Switch checked={paperless} onChange={setPaperless} size="sm" />
                 <Typography variant="body-sm" className="text-purple-100">
-                  Go paperless
+                  100% paperless process
                 </Typography>
               </div>
             </div>
+            <Typography variant="caption" className="mt-4 block text-purple-200">
+              No medical tests required for ages 18-45 with Individual & Family plans.
+            </Typography>
           </CardContent>
         </Card>
       </section>
@@ -700,7 +931,7 @@ function App() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center text-white">
                   <ShieldIcon />
                 </div>
                 <Typography variant="heading-sm" weight="bold" className="text-white">
@@ -709,6 +940,7 @@ function App() {
               </div>
               <Typography variant="body-sm" className="text-gray-400">
                 India's leading digital-first insurance company. IRDAI Licence No. 157.
+                CIN: U66000MH2016PLC287385.
               </Typography>
             </div>
             <div>
@@ -716,7 +948,7 @@ function App() {
                 Products
               </Typography>
               <ul className="space-y-2">
-                {["Car Insurance", "Bike Insurance", "Health Insurance", "Travel Insurance"].map((item) => (
+                {["Health Insurance", "Car Insurance", "Bike Insurance", "Travel Insurance", "Group Health"].map((item) => (
                   <li key={item}>
                     <Typography variant="body-sm" className="text-gray-400 hover:text-white cursor-pointer transition-colors">
                       {item}
@@ -730,7 +962,7 @@ function App() {
                 Company
               </Typography>
               <ul className="space-y-2">
-                {["About Us", "Careers", "Blog", "Contact"].map((item) => (
+                {["About Us", "Careers", "Blog", "Press", "Contact"].map((item) => (
                   <li key={item}>
                     <Typography variant="body-sm" className="text-gray-400 hover:text-white cursor-pointer transition-colors">
                       {item}
@@ -744,7 +976,7 @@ function App() {
                 Support
               </Typography>
               <ul className="space-y-2">
-                {["Help Center", "Claim Process", "Grievance Redressal", "Terms & Conditions"].map((item) => (
+                {["Help Center", "Claim Process", "Network Hospitals", "Grievance Redressal", "Terms & Conditions"].map((item) => (
                   <li key={item}>
                     <Typography variant="body-sm" className="text-gray-400 hover:text-white cursor-pointer transition-colors">
                       {item}
@@ -762,15 +994,11 @@ function App() {
               © 2026 Acko General Insurance Ltd. All rights reserved.
             </Typography>
             <div className="flex gap-6">
-              <Typography variant="caption" className="text-gray-500 hover:text-white cursor-pointer transition-colors">
-                Privacy Policy
-              </Typography>
-              <Typography variant="caption" className="text-gray-500 hover:text-white cursor-pointer transition-colors">
-                Terms of Service
-              </Typography>
-              <Typography variant="caption" className="text-gray-500 hover:text-white cursor-pointer transition-colors">
-                Cookie Policy
-              </Typography>
+              {["Privacy Policy", "Terms of Service", "Cookie Policy", "Sitemap"].map((item) => (
+                <Typography key={item} variant="caption" className="text-gray-500 hover:text-white cursor-pointer transition-colors">
+                  {item}
+                </Typography>
+              ))}
             </div>
           </div>
         </div>
