@@ -19,7 +19,7 @@
     "@acko/calendar": "2.0.0",
     "@acko/card": "2.0.0",
     "@acko/checkbox": "2.0.0",
-    "@acko/css": "2.0.0",
+    "@acko/css": "2.0.1",
     "@acko/dialog": "2.0.0",
     "@acko/drawer": "2.0.0",
     "@acko/dropdown": "2.0.0",
