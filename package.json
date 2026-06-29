@@ -44,9 +44,9 @@
     "@acko/toast": "2.0.3",
     "@acko/toggle": "2.0.3",
     "@acko/tokens": "2.0.6",
-    "@acko/tooltip": "2.0.3",
     "@acko/typography": "2.0.3",
     "@acko/surface": "2.0.4",
+    "@acko/icons": "2.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
